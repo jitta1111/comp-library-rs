@@ -15,6 +15,7 @@ pub fn lcm(a: i64, b: i64) -> i64 {
 
 /// # Returns
 /// (x, y, z) s.t. ax + by = z, z = gcd(a, b) 
+#[allow(clippy::many_single_char_names)]
 pub fn ext_gcd(a: i64, b: i64) -> (i64, i64, i64) {
     if b == 0 {
         return (1, 0, a);
@@ -40,8 +41,8 @@ mod tests {
     #[test]
     fn test_ext_gcd() {
         let check = |a: i64, b: i64| -> bool {
-            let (p, q, r) = ext_gcd(a, b);
-            if gcd(a, b) != r || p * a + q * b != r {
+            let (x, y, z) = ext_gcd(a, b);
+            if gcd(a, b) != z || a * x + b * y != z {
                 return false;
             }
             true
